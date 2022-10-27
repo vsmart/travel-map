@@ -1,11 +1,13 @@
 <script lang="ts">
+import { defineComponent } from "vue";
 import mapboxgl from "mapbox-gl";
 
-export default {
+export default defineComponent({
   name: "TravelMap",
   data() {
     return {
       apiKey: import.meta.env.VITE_MAPBOX_KEY,
+      map: undefined as unknown as mapboxgl.Map,
     };
   },
   mounted() {
@@ -17,13 +19,13 @@ export default {
       this.map = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/streets-v9",
-        minzoom: 1.3,
+        minZoom: 1.3,
         center: [13.4, 52.52], // Berlin
         zoom: 3,
       });
     },
   },
-};
+});
 </script>
 
 <template>
