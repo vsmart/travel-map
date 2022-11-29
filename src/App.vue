@@ -12,16 +12,21 @@ export default defineComponent({
   },
   mounted() {
     this.createMap();
+    new mapboxgl.Marker({
+      color: "#000000",
+    })
+      .setLngLat([-99.133, 19.432])
+      .addTo(this.map);
   },
   methods: {
     createMap() {
       mapboxgl.accessToken = this.apiKey;
       this.map = new mapboxgl.Map({
         container: "map",
-        style: "mapbox://styles/mapbox/streets-v9",
+        style: "mapbox://styles/mapbox/light-v10",
         minZoom: 1.3,
         center: [13.4, 52.52], // Berlin
-        zoom: 3,
+        zoom: 1,
       });
     },
   },
